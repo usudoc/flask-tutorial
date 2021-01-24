@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{name}}</title>
 </head>
 <body>
-    <h1>Webアプリ初心者のFlaskチュートリアル</h1>
+    {% if name == "hoge" %}
+    <h1>景色の良い{{name}}コート</h1>
+    {% elif name %}
+    <h1>{{name}}コート</h1>
+    {% else %}
+    <h1>風景</h1>
+    {% endif %}
+    <img src="/static/images/tennis_court.jpg" alt="テニスコート">
+    {% for word in spot %}
+    <p>{{word}}</p>
+    {% endfor %}
 </body>
 </html>
