@@ -12,6 +12,10 @@
     {% else %}
     <h1>風景</h1>
     {% endif %}
+    <form action="/index" method="POST">
+        <input type="text" name="name" placeholder="Enter name">
+        <input type="submit" value="Submit">
+    </form>
     <img src="/static/images/tennis_court.jpg" alt="テニスコート">
     {% for word in spot %}
     <p>{{word}}</p>
