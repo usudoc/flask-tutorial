@@ -17,8 +17,26 @@
         <input type="submit" value="Submit">
     </form>
     <img src="/static/images/tennis_court.jpg" alt="テニスコート">
-    {% for spot in all_spot %}
-    <p>{{spot.name}} : {{spot.type}} ({{spot.date}})</p>
-    {% endfor %}
+    <form action="/add" method="post">
+        <input type="text" name="name" placeholder="name">
+        <input type="text" name="type" placeholder="type">
+        <input type="submit" value="Add">
+    </form>
+    <form action="/update" method="post">
+        <input type="text" name="name" placeholder="name">
+        <input type="text" name="type" placeholder="type">
+        <input type="submit" value="Update">
+    </form>
+    <form action="/delete" method="post" id="delete">
+        <input type="submit" value="Delete Selected All Info">
+    </form>
+        {% for info in all_info %}
+        <div>
+            <input type="radio" name="update" form="update" value={{info.id}}>
+            <input type="checkbox" name="delete" form="delete" value={{info.id}}>
+            {{info.name}}：{{info.type}}（{{info.date}}）
+        </div>
+        {% endfor %}
+    </form>
 </body>
 </html>
